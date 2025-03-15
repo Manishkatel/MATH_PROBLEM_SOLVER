@@ -22,3 +22,4 @@ streamlit
 wikipedia-api
 groq
 numexpr 
+requests
