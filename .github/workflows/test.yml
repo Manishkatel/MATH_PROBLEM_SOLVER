@@ -1,6 +1,12 @@
 name: Run Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -18,8 +24,18 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install pytest
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+        pip install pytest  # Ensure pytest is installed
 
     - name: Run tests
-      run: pytest
-      
+      run: |
+        pytest --maxfail=1 --disable-warnings -q  # Stop after 1 failed test, disable warnings, and show results quietly
+
+    - name: Upload test results (if tests fail)
+      if: failure()  # This step will only run if tests fail
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: tests/test-results.xml  # Make sure you have pytest XML output configured if you want this
+
+
