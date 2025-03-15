@@ -25,7 +25,7 @@ Tools: Docker, GitHub Actions
 ## 🎬 Installation & Usage
 Clone the repository and install dependencies:
 ```
-git clone https://github.com/yourusername/math-problem-solver.git
+git clone https://github.com/Manishkatel/MATH_PROBLEM_SOLVER.git
 cd math-problem-solver
 pip install -r requirements.txt
 ```
@@ -43,4 +43,4 @@ math_assistant/
 │── README.md                   # Project documentation  
 │── .env                        # Environment variables  
 │── static/                     # Images and screenshots  
-└── .github/workflows/          # CI/CD pipelines  
+
